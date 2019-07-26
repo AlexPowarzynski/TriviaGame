@@ -1,6 +1,7 @@
 $(document).ready(function () {
+    // To target the whole quiz area
     var quiz = $(".quiz");
-
+// List of questions with answers
     var questions = [
         {
             question: "What is Patrick Star's father called?",
@@ -27,12 +28,12 @@ $(document).ready(function () {
             choices: ["Patrik", "Ratrick", "Obama", "Patrick"],
             correctAnswer: "Patrick"
         },
-        
+
     ]
-    
+
     let intervalId;
-    
-    
+
+// Shows questions/Resets values/Starts timer/Hides
     function run() {
         correct = 0;
         incorrect = 0;
@@ -41,57 +42,58 @@ $(document).ready(function () {
         $(".quiz").prepend("<h2>Time Left: <span id=timeLeft>30</span></h2>");
         $("#startButton").hide();
         for (var i = 0; i < questions.length; i++) {
-            quiz.append("<h2>" + questions[i].question + "<h2>");
+            quiz.append("<h3>" + questions[i].question + "<h3>");
             for (var t = 0; t < questions[i].choices.length; t++) {
                 quiz.append("<div><input type= 'radio' " + "name ='#" + i + "' " + "value='" + questions[i].choices[t] + "'>" + questions[i].choices[t] + "</div>");
             }
         }
-        quiz.append("<button id='done' >Done</button>");
+        quiz.append("<button class = 'btn btn-danger btn-lg' id='done' >Done</button>");
         $("#reset").hide();
         $("#cA").hide();
         $("#iA").hide();
         $("#tag").hide();
     };
 
-    
+// To check the value of user's guess with the correct answer/Shows results
     function showResults() {
         let userGuess = $("input[type='radio']:checked");
-        
+
         for (var i = 0; i < userGuess.length; i++) {
             if ($(userGuess[i]).val() === questions[i].correctAnswer) {
                 correct++;
             } else {
                 incorrect++;
             }
-            
+
         };
         clearInterval(intervalId);
         quiz.empty();
         quiz.append("<h2 id='tag'>Results</h2>");
         quiz.append("<h4 id='cA'>Correct Answers: " + correct);
         quiz.append("<h4 id='iA'>Incorrect Answers: " + incorrect);
-        quiz.append("<button id='reset'>Try Again?</button>")
-        
+        quiz.append("<button class = 'btn btn-secondary btn-lg' id='reset'>Try Again?</button>")
+
     }
-    
+// Timer
     function decrement() {
         timeleft--;
         $("#timeLeft").text(timeleft);
         if (timeleft === 0) {
             clearInterval(intervalId);
             showResults();
-        }
+        };
     }
+    // Functionality of Buttons
     $("#startButton").on("click", function () {
         run();
     })
-    
+
     $(quiz).on("click", "#done", function () {
         showResults();
     })
     $(quiz).on("click", "#reset", function () {
         clearInterval(intervalId);
-        
+
         run();
     })
 

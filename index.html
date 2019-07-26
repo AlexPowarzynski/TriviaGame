@@ -8,16 +8,18 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/CSS/style.css">
     <title>Trivia Game</title>
 </head>
 
-<body>
+<body class="sponge">
+    <div class="sponge"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1 id="title">Totally Trivial Trivia!</h1>
+            <div class="col-lg-12 text-center jumbotron bgColor">
+                <h1 id="title">SpongeBob Trivia!</h1>
                 <div class="quizarea">
-                    <button id="startButton">Start Quiz</button>
+                        <button class="btn btn-success btn-lg" id="startButton">Start Quiz</button>
                     <div class="quiz">
                     </div>
                 </div>
