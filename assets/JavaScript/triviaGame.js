@@ -37,9 +37,9 @@ $(document).ready(function () {
     function run() {
         correct = 0;
         incorrect = 0;
-        timeleft = 30;
+        timeleft = 60;
         intervalId = setInterval(decrement, 1000);
-        $(".quiz").prepend("<h2>Time Left: <span id=timeLeft>30</span></h2>");
+        $(".quiz").prepend("<h2>Time Left: <span id=timeLeft>60</span></h2>");
         $("#startButton").hide();
         for (var i = 0; i < questions.length; i++) {
             quiz.append("<h3>" + questions[i].question + "<h3>");
