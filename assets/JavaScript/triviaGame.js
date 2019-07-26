@@ -24,7 +24,7 @@ $(document).ready(function () {
             correctAnswer: "A pineapple under the sea"
         },
         {
-            question: "WWho is SpongeBob's best friend?",
+            question: "Who is SpongeBob's best friend?",
             choices: ["Patrik", "Ratrick", "Obama", "Patrick"],
             correctAnswer: "Patrick"
         },
